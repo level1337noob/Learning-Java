@@ -1,0 +1,177 @@
+Learn Java.
+
+Object Oriented Programming Concepts
+
+1. State and Behaviour
+2. Fields
+3. Methods
+4. Encapsulation
+5. Instance
+6. Superclass, Subclass, extends
+7. Interface
+8. Package
+9. Application Programming Interface
+
+Variables
+
+1. Non static fields
+2. Static field
+3. Method
+4. Parameter
+5. int, long, double, float, char, byte, boolean, short
+6. java.lang.String
+7. Array
+
+Operators
+
+1. Relation (>) and arithmetic (+)
+
+2.
+a. i is 11 and n is 0
+b. i is 11 and n is 1
+3. use the unary operator !
+4. ==
+5. It uses the tenary operator to test the condition someCondition if it's true then it will reach value1 and set to result else it will reach value2 and set to result
+
+Expressions, Statements, Blocks
+
+1. Expressions
+2. Statements
+3. Blocks
+4. Compound
+5. Semicolon
+6. Braces
+
+Exercises:
+
+1. Assignment statement
+2. Increment statement
+3. Method invocation statement
+4. Object creation statement
+
+Control Flow statements
+
+1. if
+2. switch
+3. do-while bottom
+4. for (;;);
+5. while (true); or while (1);
+
+Classes
+
+1.
+
+a) Class variables are static within the class meaning it can
+be accessible without the use of instantiation in this case x is a class variable
+b) Instance variables are non-static variables in this case y is a instance variable
+c)
+a.y = 5
+b.y = 6
+a.x = 2
+b.x = 2
+IdentifyMyParts.x = 7
+
+Objects
+
+1. Rectangle is not defined
+2. 1 and yes it is eligible for garbage collection rightafter the method ends or
+	if it's a static class once the life cycle of a program ends
+
+3. Using the null keyword
+
+Enum Types
+
+1. True
+
+Nested Classes
+
+1. So the class Problem has to have a static field s and not an instance field s that's why the code won't compile
+
+2.
+a) Box.Filler
+b) Box.AccessibleBox
+c) Container.AccessibleAWTContainer
+d) Box.Filler
+d) Box.Filler f = new Box.Filler(...)
+
+Annotations
+
+1. There's a deprecated open method
+2. Remove @Deprecated annotation in the interface
+3. No it won't compile since Java requires a name=value syntax once declaring an annotation
+the reason why is I don't know about the newer versions of java if you can implicity declare annotations or whatnot
+but the interface code is right just only one value has to be initialized which is the name of the first element
+
+Interfaces
+
+1. charAt, length, subSequence, toString
+2. It has to be a abstract method otherwise use default
+3. public interface SomethingIsWrong {
+		default void aMethod(int aValue) {
+			System.out.println("Hi Mom");
+		}
+	}
+4. Yes since it has the right syntax
+
+Inheritance
+
+1.
+a) methodTwo the rest are compiler errors
+b)  methodFour the rest are compiler errors
+c) Generates compiler errors due to overriding a static method to non static method, non static method to staticmethod
+2. Idk depends on the implementation
+
+Generics
+
+1.
+
+2. No it won't compile, since T requires both the parameters to be of type Integer the better way to do this is to
+	make public static <T extends Integer> T max(T x, T y) so it would be integer types only or the other way is to make an interface that compares both parameters and then extending the generic type with the interface
+
+
+Creating and Using Packages
+
+1.
+For server class you should add package mygame.server;
+For utilities class you should add package mygame.shared;
+For client class you should add package mygame.client;
+
+2.
+for Server you should create mygame folder containing server folder, the mygame/server should contain Server.java source file
+for Utilities you should create mygame folder containing shared folder, the mygame/shared should contain Utilities.java source file
+for Client you should create mygame folder containing client folder, the mygame/client should contain Client.java source file
+
+3. Yes you should add a classes folder to contain classes/mygame/xxx/xxx.class in order for the JVM
+to get it running and make it clean and setting the CLASSPATH variable depending on the UNIX/Windows system as well
+as importing the source files to specific source files
+
+Exceptions
+
+1. No it does not specify the try catch statements otherwise use the try-with statement and finally statement it would work
+2. Checked exceptions and not error or runtime exceptions (collection of unchecked exceptions), so therefore it's going to check any exception of type Exception be it ArithmeticException, FileNotFoundException etc.
+3. There's a problem running. Exception handlers are in order
+since ArithmeticException is a subclass of Exception it won't execute due to
+ordering of Exception and Exception matches any type of checked exception
+4.
+a) 3
+b) 1
+c) 4
+d) 2
+
+Basic I/O
+
+Question 1. What class and method would you use to read a few pieces of data that are at known positions near the end of a large file?
+
+Answer 1. Files.newByteChannel returns an instance of SeekableByteChannel which allows you to read from (or write to) any position in the file.
+
+Question 2. When invoking format, what is the best way to indicate a new line?
+
+Answer 2. Use the %n conversion — the \n escape is not platform independent!
+
+Question 3. How would you determine the MIME type of a file?
+
+Answer 3. The Files.probeContentType method uses the platform's underlying file type detector to evaluate and return the MIME type.
+
+Question 4. What method(s) would you use to determine whether a file is a symbolic link?
+
+Answer 4. You would use the Files.isSymbolicLink method.
