@@ -8,43 +8,43 @@ class Person {
 
     public enum Sex {
         MALE ("Male"), FEMALE ("Female");
-		
-		final String sex;
-		
-		Sex(String sex) {
-			this.sex = sex;
-		}
-		
-		String getSex() {
-			return sex;
-		}
+        
+        final String sex;
+        
+        Sex(String sex) {
+            this.sex = sex;
+        }
+        
+        String getSex() {
+            return sex;
+        }
     }
 
     String name;
-	int age;
+    int age;
     Sex gender;
 
-	Person(String name, int age, Sex gender) {
-		this.name = name;
-		this.age = age;
-		this.gender = gender;
-	}
-
-    public int getAge() {
-		return age;
+    Person(String name, int age, Sex gender) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
     }
 
-	String getName() {
-		return name;
-	}
+    public int getAge() {
+        return age;
+    }
 
-	Sex getGender() {
-		return gender;
-	}
+    String getName() {
+        return name;
+    }
+
+    Sex getGender() {
+        return gender;
+    }
 
     public void printPerson() {
-		System.out.printf("Person Name %s Age %d Gender %s\n", name, age, gender.getSex());
-	}
+        System.out.printf("Person Name %s Age %d Gender %s\n", name, age, gender.getSex());
+    }
 }
 
 public class LambdaExpressions {
@@ -127,46 +127,46 @@ public class LambdaExpressions {
         }
     }
     
-	public static void main(String... args) {
-		LinkedList<Person> persons = new LinkedList<Person>();
-	
-		persons.add(new Person("John", 20, Person.Sex.MALE));
-		persons.add(new Person("Alice", 48, Person.Sex.FEMALE));
-		persons.add(new Person("Bob", 50, Person.Sex.MALE));
+    public static void main(String... args) {
+        LinkedList<Person> persons = new LinkedList<Person>();
+    
+        persons.add(new Person("John", 20, Person.Sex.MALE));
+        persons.add(new Person("Alice", 48, Person.Sex.FEMALE));
+        persons.add(new Person("Bob", 50, Person.Sex.MALE));
 
-		System.out.println("Approach age greater than x");
-		printPersonsOlderThan(persons, 20);
+        System.out.println("Approach age greater than x");
+        printPersonsOlderThan(persons, 20);
 
-		System.out.println("Approach age with range");
-		printPersonsWithinAgeRange(persons, 40, 50);
+        System.out.println("Approach age with range");
+        printPersonsWithinAgeRange(persons, 40, 50);
 
-		System.out.println("Anonymous classes approach");
-		printPersons(persons, new CheckPerson() {
-			public boolean test(Person p) {
-				return p.getGender() == Person.Sex.FEMALE && p.age >= 40 && p.age <= 50;
-			}
-		});
-		
-		System.out.println("Lambda expression approach");
-		printPersons(persons, (Person p) -> p.getGender() == Person.Sex.MALE && p.age >= 20 && p.age <= 50);
+        System.out.println("Anonymous classes approach");
+        printPersons(persons, new CheckPerson() {
+            public boolean test(Person p) {
+                return p.getGender() == Person.Sex.FEMALE && p.age >= 40 && p.age <= 50;
+            }
+        });
+        
+        System.out.println("Lambda expression approach");
+        printPersons(persons, (Person p) -> p.getGender() == Person.Sex.MALE && p.age >= 20 && p.age <= 50);
 
 
-		System.out.println("Predicate lambda expression approach");
-		printPersonsWithPredicate(persons, (Person p) -> p.getGender() == Person.Sex.MALE && p.age >= 20 && p.age <= 50);
+        System.out.println("Predicate lambda expression approach");
+        printPersonsWithPredicate(persons, (Person p) -> p.getGender() == Person.Sex.MALE && p.age >= 20 && p.age <= 50);
 
-		System.out.println("Predicate and consumer lambda approach");
-		processPersons(persons,
-			p -> p.getGender() == Person.Sex.MALE
-			&& p.getAge() >= 18
-			&& p.getAge() <= 25,
-			p -> p.printPerson());
+        System.out.println("Predicate and consumer lambda approach");
+        processPersons(persons,
+            p -> p.getGender() == Person.Sex.MALE
+            && p.getAge() >= 18
+            && p.getAge() <= 25,
+            p -> p.printPerson());
 
-		System.out.println("Predicate and consumer and function lambda approach");
-		processPersonsWithFunction(persons,
-			p -> p.getGender() == Person.Sex.MALE
-			&& p.getAge() >= 18
-			&& p.getAge() <= 25,
-			p -> p.getName(),
-			e -> System.out.println(e));
-	}
+        System.out.println("Predicate and consumer and function lambda approach");
+        processPersonsWithFunction(persons,
+            p -> p.getGender() == Person.Sex.MALE
+            && p.getAge() >= 18
+            && p.getAge() <= 25,
+            p -> p.getName(),
+            e -> System.out.println(e));
+    }
 }
